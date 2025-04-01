@@ -1,0 +1,56 @@
+﻿<%@ Master Language="VB" CodeFile="Login.master.vb" Inherits="admin_login_login_form_20_Login" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/font_awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="../admin/plugins/node-waves/waves.css" rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="../admin/plugins/animate-css/animate.css" rel="stylesheet" />
+    <!-- Sweetalert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <link href="../admin/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="img js-fullheight">
+
+
+    <form id="form1" runat="server">
+
+        <section class="ftco-section">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label></h2>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </section>
+    </form>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../../plugins/sweetalert/new.js"></script>
+    <script src="../admin/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../admin/plugins/sweetalert/new.js"></script>
+</body>
+</html>

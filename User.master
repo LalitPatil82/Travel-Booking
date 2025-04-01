@@ -1,0 +1,227 @@
+﻿<%@ Master Language="VB" CodeFile="User.master.vb" Inherits="User" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title></title>
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+        <style type="text/css">
+        .whatsapp_button {
+            position: fixed;
+            bottom: 85px;
+            right: 30px;
+            z-index: 9999;
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo-wrapper">
+                <a class="logo" href="Default.aspx"> <img src="img/logo-light.png" class="logo-img" alt=""> </a>
+                <!-- <a class="logo" href="index.html"> <h2>TRAVOL <span>explore the world</span></h2> </a> -->
+            </div>
+            <!-- Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#home" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Home</a>
+                       
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#tour" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Tours </a>
+                       
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#destination">Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#hotel" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Hotels </a>
+                       
+                    </li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#blog" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Blog </a>
+                        
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+                    <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="img/icons8-user-40.png" style="max-width: 30px">
+                                <span class="ml-2 d-none d-lg-inline text-white small">
+                                    <asp:Label ID="Label2" runat="server" ForeColor="Black"></asp:Label></span>
+                            </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <form id="form1" runat="server">
+             <asp:ImageButton CssClass="whatsapp_button" ID="whatsapp_button" runat="server" ImageUrl="~/img/whatsApp.png" ImageAlign="Right" Width="50px" Height="50px" Style="border-radius: 20px;" />
+
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <footer class="footer clearfix" id="contact">
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+                <div class="container">
+            <!-- First footer -->
+            <div class="first-footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links dark footer-contact-links">
+                            <div class="footer-contact-links-wrapper">
+                                <div class="footer-contact-link-wrapper">
+                                    <div class="image-wrapper footer-contact-link-icon">
+                                        <div class="icon-footer"> <i class="flaticon-phone-call"></i> </div>
+                                    </div>
+                                    <div class="footer-contact-link-content">
+                                        <h6>Call us</h6>
+                                        <p>+91 <%# Eval("ph_no") %></p>
+                                    </div>
+                                </div>
+                                <div class="footer-contact-links-divider"></div>
+                                <div class="footer-contact-link-wrapper">
+                                    <div class="image-wrapper footer-contact-link-icon">
+                                        <div class="icon-footer"> <i class="flaticon-message"></i> </div>
+                                    </div>
+                                    <div class="footer-contact-link-content">
+                                        <h6>Write to us</h6>
+                                        <p><%# Eval("email") %></p>
+                                    </div>
+                                </div>
+                                <div class="footer-contact-links-divider"></div>
+                                <div class="footer-contact-link-wrapper">
+                                    <div class="image-wrapper footer-contact-link-icon">
+                                        <div class="icon-footer"> <i class="flaticon-placeholder"></i> </div>
+                                    </div>
+                                    <div class="footer-contact-link-content">
+                                        <h6>Address</h6>
+                                        <p><%# Eval("address") %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Second footer -->
+            <div class="second-footer">
+                <div class="row">
+                    <!-- about & social icons -->
+                    <div class="col-md-4 widget-area">
+                        <div class="widget clearfix">
+                            <div class="footer-logo"> <img class="img-fluid" src="<%# ("admin/img/about_us/") + Eval("comp_logo") %>" alt=""> </div>
+                            <div class="widget-text">
+                                <p><%# Eval("comp_name") %></p>
+                                <div class="social-icons">
+                                    <ul class="list-inline">
+                                        <li><a href="<%# Eval("insta_link") %>"><i class="ti-instagram"></i></a></li>
+                                        <li><a href="<%# Eval("facebook_link") %>"><i class="ti-facebook"></i></a></li>
+                                        <li><a href="<%# Eval("youtube_link") %>"><i class="ti-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- quick links -->
+                    <div class="col-md-3 offset-md-1 widget-area">
+                        <div class="widget clearfix usful-links">
+                            <h3 class="widget-title">Quick Links</h3>
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="tours.html">Tours</a></li>
+                                <li><a href="destination.html">Destinations</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- subscribe -->
+                    <div class="col-md-4 widget-area">
+                        <div class="widget clearfix">
+                            <h3 class="widget-title">Subscribe</h3>
+                            <p>Sign up for our monthly blogletter to stay informed about travel and tours</p>
+                            <div class="widget-newsletter">
+                                <form action="#">
+                                    <input type="email" placeholder="Email Address" required>
+                                    <button type="submit">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom footer -->
+            <div class="bottom-footer-text">
+                <div class="row copyright">
+                    <div class="col-md-12">
+                        <p class="mb-0">©2023 <a href="#">DAL</a>. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:Tours and Travels %>' SelectCommand="SELECT * FROM [tour_about_us]"></asp:SqlDataSource>
+        
+    </footer>
+    <!-- jQuery -->
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/script.js" ></script>
+    <script>
+  function success() {
+                swal("Done!", "The Record is Saved!", "success");
+            }
+            //it will show the error message that the value is already their
+            function error() {
+                swal("Value Not Inserted!", "The Value is Already Their!", "error");
+            }
+    </script>
+</body>
+</html>
